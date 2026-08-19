@@ -1,10 +1,12 @@
 import React from 'react'
 import fotoTentara from '../assets/fotoTentara.png'
+import Navbar from './Navbar'
 
 export default function HeroSection() {
   return (
     <>
-      <div className="bg-cover bg-center bg-no-repeat w-full max-w-107 h-98.75 md:max-w-none md:w-full md:h-screen " style={{ backgroundImage: `url(${fotoTentara})` }} id='hero-section'>
+      <div className="bg-cover bg-center bg-no-repeat w-full max-w-107 h-98.75 md:max-w-none md:w-full md:h-screen pt-[25px] pb-[50px] " style={{ backgroundImage: `url(${fotoTentara})` }} id='hero-section'>
+        <Navbar />
         <div className='text-center text-white font-bold text-3xl flex flex-col gap-[25px] items-center'>
           <h1>Advanced Defense and Tactical Solutions</h1>
           <p className='font-light text-base'>Committed to empowering armed forces with precision, readiness, and advanced defense capabilities across land, sea, and air.</p>
