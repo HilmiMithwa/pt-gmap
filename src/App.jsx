@@ -1,11 +1,12 @@
 import './App.css'
 
-import LicensingCard from './components/Card'
 import HeroSection from './section/HeroSection'
 import LicensingSection from './section/LicensingSection'
 import VissionSection from './section/VissionSection'
 import MissionSection from './section/MissionSection'
 import ServiceSection from './section/ServiceSection'
+import GallerySection from './section/GallerySection'
+import Footer from './section/Footer'
 
 function App() {
   
@@ -17,6 +18,8 @@ function App() {
       <VissionSection />
       <MissionSection />
       <ServiceSection />
+      <GallerySection />
+      <Footer />
     </div>
       
     </>
