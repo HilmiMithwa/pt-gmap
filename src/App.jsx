@@ -8,8 +8,11 @@ function App() {
   
   return (
     <>
+    <div className='flex flex-col'>
       <HeroSection />
       <LicensingSection />
+    </div>
+      
     </>
   )
 }

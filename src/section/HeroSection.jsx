@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 
 export default function HeroSection() {
   return (
-    <>
+    <section className='w-full'>
       <div className="bg-cover bg-center bg-no-repeat w-full min-h-[520px] md:min-h-screen h-auto pt-4 md:pt-6 pb-12 md:pb-20 px-4 sm:px-6 md:px-12 flex flex-col justify-between relative" style={{ backgroundImage: `url(${fotoTentara})` }} id='hero-section'>
         <Navbar />
         
@@ -23,7 +23,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className='bg-[#006B3F] text-white px-6 py-8 md:px-12 md:py-16 lg:px-20 lg:py-20'>
+      <div className='bg-[#006B3F] text-white px-6 py-8 md:px-12 md:py-16 lg:px-20 lg:py-20' id='about'>
         <div className='max-w-6xl mx-auto flex flex-col gap-3 md:gap-5'>
           <h1 className='text-xl sm:text-2xl md:text-4xl font-semibold underline'>About Us</h1>
           <p className='font-light text-justify text-sm sm:text-base md:text-base leading-relaxed opacity-95'>
@@ -31,6 +31,6 @@ export default function HeroSection() {
           </p>
         </div>
       </div>
-    </>
+    </section>
   )
 }
