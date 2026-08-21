@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 import fotoMobil from '../assets/service_images/fotoMobil.png'
 import fotoNgetik from '../assets/service_images/fotoNgetik.png'
@@ -7,13 +8,11 @@ import fotoTablet from '../assets/service_images/fotoTablet.png'
 
 import ServiceCard from "../components/ServiceCard";
 
-
-
 export default function ServiceSection() {
     const services = [
         {
             image: fotoSenjata,
-            title: "Goods & Tactical  Procurement",
+            title: "Goods & Tactical Procurement",
             description: "Comprehensive sourcing and supply of tactical gear, spare parts, equipment, and general operational provisions for Land, Sea, Air forces, and the National Police."
         },
         {
@@ -23,7 +22,7 @@ export default function ServiceSection() {
         },
         {
             image: fotoNgetik,
-            title: "Defense Manufacturing & Armament  Supply",
+            title: "Defense Manufacturing & Armament Supply",
             description: "Comprehensive sourcing and supply of tactical gear, spare parts, equipment, and general operational provisions for Land, Sea, Air forces, and the National Police."
         },
         {
@@ -36,16 +35,44 @@ export default function ServiceSection() {
     return (
         <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-12 md:py-16 lg:py-20" id="services">
             <div className="max-w-6xl mx-auto flex flex-col gap-[35px]">
-                <div className="flex flex-col gap-3 md:gap-5">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.7 }}
+                    className="flex flex-col gap-3 md:gap-5"
+                >
                     <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Our Services</h1>
-                    <p className="text-sm sm:text-base md:text-xl leading-relaxed text-justify">PT Guna Mitra Abadi Perkasa delivers integrated, highly adaptable procurement solutions engineered to support mission-readiness across the defense and security sectors.</p>
-                </div>
+                    <p className="text-sm sm:text-base md:text-3xl leading-relaxed text-justify">PT Guna Mitra Abadi Perkasa delivers integrated, highly adaptable procurement solutions engineered to support mission-readiness across the defense and security sectors.</p>
+                </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px] lg:gap-8">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={{
+                        hidden: {},
+                        show: {
+                            transition: {
+                                staggerChildren: 0.15
+                            }
+                        }
+                    }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-[35px] lg:gap-8"
+                >
                     {services.map((item) => (
-                        <ServiceCard key={item.title} title={item.title} image={item.image} description={item.description}/>
+                        <motion.div
+                            key={item.title}
+                            variants={{
+                                hidden: { opacity: 0, y: 30 },
+                                show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                            }}
+                            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                        >
+                            <ServiceCard title={item.title} image={item.image} description={item.description}/>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     )

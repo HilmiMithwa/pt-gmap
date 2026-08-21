@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import LicensingCard from '../components/Card'
 
 export default function LicensingSection() {
@@ -46,18 +47,47 @@ export default function LicensingSection() {
   ]
 
   return (
-    <div className="px-4 sm:px-6 md:px-12 lg:px-20 pt-8 md:pt-12 lg:pt-16 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
-      <div className='max-w-6xl mx-auto flex flex-col gap-3 md:gap-5'>
-        <h1 className='text-xl sm:text-2xl md:text-4xl font-semibold underline'>Licensing</h1>
-        <p className='font-light text-justify text-sm sm:text-base md:text-base leading-relaxed opacity-95'>
+    <div className="px-4 sm:px-6 md:px-12 lg:px-20 pt-8 md:pt-12 lg:pt-16 pb-8 sm:pb-12 md:pb-16 lg:pb-20" id="licensing">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.7 }}
+        className='max-w-6xl mx-auto flex flex-col gap-3 md:gap-5 text-center'
+      >
+        <h1 className='text-xl sm:text-2xl md:text-5xl font-semibold underline'>Licensing</h1>
+        <p className='font-light text-justify text-sm sm:text-base md:text-3xl leading-relaxed opacity-95 md:text-center'>
           The company holds comprehensive business legality and official operational licenses, including KBLI 25200 (Weapons and Ammunition Industry). Under this authorization, in addition to serving the procurement of goods and services for strategic partners across the Indonesian Armed Forces (Army, Navy, Air Force) and the Indonesian National Police, the company's operational scope and capabilities encompass.
         </p>
-      </div>
-      <div className='flex flex-col gap-[15px] text-white text-xs pt-[30px]'>
-        {licensingCards.map((item) => (
-          <LicensingCard key={item.title} title={item.title} icon={item.icon} description={item.description}/>
+      </motion.div>
+
+      <motion.div 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          hidden: {},
+          show: {
+            transition: {
+              staggerChildren: 0.15
+            }
+          }
+        }}
+        className='grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 text-white pt-8 md:pt-10 max-w-6xl mx-auto'
+      >
+        {licensingCards.map((item, index) => (
+          <motion.div
+            key={item.title}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            }}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+          >
+            <LicensingCard title={item.title} icon={item.icon} description={item.description}/>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
     </div>
   )

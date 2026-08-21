@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import logo_gmap from '../assets/logo_gmap.png'
 import logo_dunia from '../assets/logo_dunia.png'
 
