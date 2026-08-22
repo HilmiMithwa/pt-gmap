@@ -8,10 +8,26 @@ export default function Footer() {
         { name: 'Home', href: '#hero-section' },
         { name: 'About Us', href: '#about' },
         { name: 'Licensing', href: '#licensing' },
-        { name: 'Vission and Mission', href: '#vision-mission' },
+        { name: 'Vision and Mission', href: '#vision' },
         { name: 'Services', href: '#services' },
-        { name: 'Galery', href: '#gallery' },
+        { name: 'Gallery', href: '#gallery' },
     ]
+
+    const handleNavClick = (e, href) => {
+        e.preventDefault()
+        const targetId = href.replace('#', '')
+        const element = document.getElementById(targetId)
+        if (element) {
+            const navbarOffset = 70
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - navbarOffset
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
+        }
+    }
 
     return (
         <footer className="bg-[#1C1C1E] text-white px-4 sm:px-6 md:px-12 lg:px-20 py-10 md:py-14" id="contact">
@@ -20,6 +36,7 @@ export default function Footer() {
                 <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
                         <img src={logo_gmap} alt="GMAP Logo" className="h-10 sm:h-14 md:h-16 w-auto object-contain" />
+                        <img src={logo_dunia} alt="Dunia Logo" className='h-10 sm:h-14 md:h-16 w-auto object-contain'/>
                         <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white tracking-wide">
                             PT Guna Mitra Abadi Perkasa
                         </h1>
@@ -41,7 +58,8 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className="text-sm sm:text-base text-neutral-300 underline hover:text-white transition-colors inline-block"
+                                        onClick={(e) => handleNavClick(e, link.href)}
+                                        className="text-sm sm:text-base text-neutral-300 underline hover:text-white transition-colors inline-block cursor-pointer"
                                     >
                                         {link.name}
                                     </a>

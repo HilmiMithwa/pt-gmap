@@ -11,7 +11,7 @@ export default function VissionSection() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className='max-w-7xl mx-auto bg-[#006B3F] rounded-3xl p-8 sm:p-10 md:p-14 lg:p-16 flex flex-col items-end text-right gap-3 md:gap-5 shadow-xl'
       >
-        <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight'>
+        <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-semibold tracking-tight'>
           Our Vision
         </h1>
         <p className='font-light text-base sm:text-lg md:text-2xl lg:text-[28px] leading-relaxed max-w-4xl'>

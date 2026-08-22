@@ -42,7 +42,7 @@ export default function ServiceSection() {
                     transition={{ duration: 0.7 }}
                     className="flex flex-col gap-3 md:gap-5"
                 >
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Our Services</h1>
+                    <h1 className="text-2xl sm:text-2xl md:text-5xl font-semibold underline">Our Services</h1>
                     <p className="text-sm sm:text-base md:text-3xl leading-relaxed text-justify">PT Guna Mitra Abadi Perkasa delivers integrated, highly adaptable procurement solutions engineered to support mission-readiness across the defense and security sectors.</p>
                 </motion.div>
 
