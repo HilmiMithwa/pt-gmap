@@ -11,7 +11,7 @@ import GallerySection from './section/GallerySection'
 import Footer from './section/Footer'
 import SeeMoreGallery from './pages/SeeMoreGallery'
 
-// Custom component to handle smooth scrolling to elements on route/hash changes
+
 function ScrollToHashElement() {
   const { hash, pathname } = useLocation()
 
@@ -20,7 +20,7 @@ function ScrollToHashElement() {
       const id = hash.replace('#', '')
       const element = document.getElementById(id)
       if (element) {
-        // Wait briefly for content rendering/animations to settle
+        
         const timer = setTimeout(() => {
           const navbarOffset = 70
           const elementPosition = element.getBoundingClientRect().top
