@@ -7,6 +7,7 @@ import logo_dunia from '../assets/logo_dunia.png'
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const whatsappURL = 'https://wa.me/6287770141029'
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -108,6 +109,7 @@ export default function Navbar() {
               shadow-md
               cursor-pointer
             "
+            onClick={() => window.open(whatsappURL, '_blank')}
           >
             Contact Us
           </motion.div>
@@ -154,6 +156,7 @@ export default function Navbar() {
                   to="/#contact"
                   onClick={() => setIsOpen(false)}
                   className="inline-block w-full text-center bg-[#FFC400] text-black px-5 py-2.5 rounded-full font-semibold"
+
                 >
                   Contact Us
                 </Link>
