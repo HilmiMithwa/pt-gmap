@@ -1,33 +1,18 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import logo_gmap from '../assets/logo_gmap.png'
 import logo_dunia from '../assets/logo_dunia.png'
 
 export default function Footer() {
     const navLinks = [
-        { name: 'Home', href: '#hero-section' },
-        { name: 'About Us', href: '#about' },
-        { name: 'Licensing', href: '#licensing' },
-        { name: 'Vision and Mission', href: '#vision' },
-        { name: 'Services', href: '#services' },
-        { name: 'Gallery', href: '#gallery' },
+        { name: 'Home', href: '/#hero-section' },
+        { name: 'About Us', href: '/#about' },
+        { name: 'Licensing', href: '/#licensing' },
+        { name: 'Vision and Mission', href: '/#vision' },
+        { name: 'Services', href: '/#services' },
+        { name: 'Gallery', href: '/#gallery' },
     ]
-
-    const handleNavClick = (e, href) => {
-        e.preventDefault()
-        const targetId = href.replace('#', '')
-        const element = document.getElementById(targetId)
-        if (element) {
-            const navbarOffset = 70
-            const elementPosition = element.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.pageYOffset - navbarOffset
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            })
-        }
-    }
 
     return (
         <footer className="bg-[#1C1C1E] text-white px-4 sm:px-6 md:px-12 lg:px-20 py-10 md:py-14" id="contact">
@@ -56,13 +41,12 @@ export default function Footer() {
                         <ul className="flex flex-col gap-2.5">
                             {navLinks.map((link) => (
                                 <li key={link.name}>
-                                    <a
-                                        href={link.href}
-                                        onClick={(e) => handleNavClick(e, link.href)}
+                                    <Link
+                                        to={link.href}
                                         className="text-sm sm:text-base text-neutral-300 underline hover:text-white transition-colors inline-block cursor-pointer"
                                     >
                                         {link.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

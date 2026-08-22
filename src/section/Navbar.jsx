@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link, useNavigate } from 'react-router-dom'
 import logo_gmap from '../assets/logo_gmap.png'
 import logo_dunia from '../assets/logo_dunia.png'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,30 +21,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault()
-    const targetId = href.replace('#', '')
-    const element = document.getElementById(targetId)
-    if (element) {
-      const navbarOffset = 70
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - navbarOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-    setIsOpen(false)
-  }
-
   const navItems = [
-    { name: 'Home', href: '#hero-section' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Licensing', href: '#licensing' },
-    { name: 'Vision and Mission', href: '#vision' },
-    { name: 'Services', href: '#services' },
-    { name: 'Gallery', href: '#gallery' },
+    { name: 'Home', href: '/#hero-section' },
+    { name: 'About Us', href: '/#about' },
+    { name: 'Licensing', href: '/#licensing' },
+    { name: 'Vision and Mission', href: '/#vision' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Gallery', href: '/#gallery' },
   ]
 
   return (
@@ -63,7 +48,7 @@ export default function Navbar() {
           className="flex items-center gap-3 sm:gap-5 cursor-pointer"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
-          onClick={(e) => handleNavClick(e, '#hero-section')}
+          onClick={() => navigate('/#hero-section')}
         >
           <img
             src={logo_gmap}
@@ -81,9 +66,8 @@ export default function Navbar() {
         <ul className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navItems.map((item) => (
             <li key={item.name} className="relative group">
-              <a
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
+              <Link
+                to={item.href}
                 className="
                   text-base xl:text-lg
                   font-light
@@ -96,38 +80,38 @@ export default function Navbar() {
                 "
               >
                 {item.name}
-              </a>
+              </Link>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFC400] transition-all duration-300 group-hover:w-full" />
             </li>
           ))}
         </ul>
 
         {/* CONTACT */}
-        <motion.a
-          href="#contact"
-          onClick={(e) => handleNavClick(e, '#contact')}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="
-            hidden lg:flex
-            items-center
-            gap-2.5
-            bg-[#FFC400]
-            hover:bg-[#e6b000]
-            transition-colors
-            text-black
-            px-5 xl:px-6
-            py-2.5
-            rounded-full
-            text-sm xl:text-base
-            font-semibold
-            whitespace-nowrap
-            shadow-md
-            cursor-pointer
-          "
-        >
-          Contact Us
-        </motion.a>
+        <Link to="/#contact">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="
+              hidden lg:flex
+              items-center
+              gap-2.5
+              bg-[#FFC400]
+              hover:bg-[#e6b000]
+              transition-colors
+              text-black
+              px-5 xl:px-6
+              py-2.5
+              rounded-full
+              text-sm xl:text-base
+              font-semibold
+              whitespace-nowrap
+              shadow-md
+              cursor-pointer
+            "
+          >
+            Contact Us
+          </motion.div>
+        </Link>
 
         {/* BURGER */}
         <button
@@ -155,24 +139,24 @@ export default function Navbar() {
             <ul className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
+                  <Link
+                    to={item.href}
+                    onClick={() => setIsOpen(false)}
                     className="text-base font-light text-white/90 hover:text-white transition-colors block py-2 border-b border-white/5"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
 
               <li className="pt-2">
-                <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, '#contact')}
+                <Link
+                  to="/#contact"
+                  onClick={() => setIsOpen(false)}
                   className="inline-block w-full text-center bg-[#FFC400] text-black px-5 py-2.5 rounded-full font-semibold"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>

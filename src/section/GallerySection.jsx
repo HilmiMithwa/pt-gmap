@@ -1,24 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import image1 from "../assets/gallery/IMG-20260817-WA0024.jpg.jpeg"
 import image2 from "../assets/gallery/IMG-20260817-WA0020.jpg.jpeg"
 import image3 from "../assets/gallery/IMG-20250624-WA0002.jpg (1).jpeg"
 import image4 from "../assets/gallery/IMG-20250624-WA0005.jpg.jpeg"
 
 export default function GallerySection() {
-    const handleScrollToContact = () => {
-        const element = document.getElementById('contact')
-        if (element) {
-            const navbarOffset = 70
-            const elementPosition = element.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.pageYOffset - navbarOffset
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            })
-        }
-    }
+    const navigate = useNavigate();
 
     return (
         <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden" id="gallery">
@@ -39,7 +28,7 @@ export default function GallerySection() {
                     <motion.button 
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        onClick={handleScrollToContact}
+                        onClick={() => navigate('/gallery')}
                         className="w-full bg-[#006837] hover:bg-[#00522b] text-white font-medium text-base sm:text-lg py-3.5 rounded-full transition-colors cursor-pointer shadow-sm text-center mt-2"
                     >
                         See More
