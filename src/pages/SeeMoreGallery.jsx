@@ -98,7 +98,7 @@ export default function SeeMoreGallery() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-neutral-400 max-w-2xl text-base md:text-lg font-light leading-relaxed"
                     >
-                        A comprehensive documentation of PT Guna Mitra Abadi's high-precision tactical assets, strict procurement workflows, and active defense collaborations.
+                        A comprehensive documentation of PT Guna Mitra Abadi's high precision tactical assets, strict procurement workflows, and active defense collaborations.
                     </motion.p>
                 </div>
             </section>
